@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         ListView lst = (ListView) findViewById(R.id.lensDisplay);
         lst.setAdapter(adapter);
     }
-    /*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -82,5 +82,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-     */
 }

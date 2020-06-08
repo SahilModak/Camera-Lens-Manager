@@ -7,6 +7,19 @@ import java.util.List;
 public class LensManager implements Iterable<Lens>{
     private List<Lens> allLens =  new ArrayList<>();
 
+    private LensManager(){
+        // stops anyone else from initializing a variable of the class.
+    }
+
+    public static LensManager Instance;
+
+    public static LensManager getInstance(){
+        if(Instance == null){
+            Instance = new LensManager();
+        }
+        return Instance;
+    }
+
     public void add(Lens a){
         //Method to add new lens to the manager
         allLens.add(a);

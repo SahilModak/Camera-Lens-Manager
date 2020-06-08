@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populatelistView() {
-        LensManager manager = new LensManager();
+        LensManager manager = LensManager.getInstance();
         manager.add(new Lens("Canon", 1.8, 50));
         manager.add(new Lens("Tamron", 2.8, 90));
         manager.add(new Lens("Sigma", 2.8, 200));

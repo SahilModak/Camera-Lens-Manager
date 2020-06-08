@@ -26,7 +26,7 @@ public class Lens {
     public String toString() {
         // override to print lens information
         return make + "  " +
-                focal_Length + "mm     F" +
+                focal_Length + "mm  F" +
                 max_Aperture;
 
     }

@@ -1,5 +1,6 @@
 package com.example.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.assignment2.model.Lens;
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i = AddLens.makelaunchIntent(MainActivity.this);
+                startActivity(i);
             }
         });
 
         populatelistView();
+
     }
 
     private void populatelistView() {

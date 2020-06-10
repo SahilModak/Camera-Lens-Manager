@@ -11,11 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
+    private static final String getSelected_lens = "Selected Lens";
 
-    public static Intent launchCalcIntent(Context c){
+    private String selectedLens;
+
+    public static Intent launchCalcIntent(Context c, String message){
         Intent intent = new Intent(c, CalculatorActivity.class);
+        intent.putExtra(getSelected_lens, message);
         return intent;
     }
 
@@ -26,5 +31,15 @@ public class CalculatorActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        extractDataFromIntent();
+
+        TextView lensName = (TextView)findViewById(R.id.textView11);
+//        String selectedLens = lensName.getText().toString();
+        lensName.setText(selectedLens);
+    }
+
+    private void extractDataFromIntent() {
+        Intent intent = getIntent();
+        selectedLens = intent.getStringExtra(getSelected_lens);
     }
 }

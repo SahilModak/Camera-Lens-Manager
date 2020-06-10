@@ -1,6 +1,11 @@
 package com.example.assignment2.model;
 
 public class Lens {
+
+    public String getMake() {
+        return make;
+    }
+
     private String make;
     private double max_Aperture;
     private int focal_Length;
@@ -29,5 +34,17 @@ public class Lens {
                 focal_Length + "mm  F" +
                 max_Aperture;
 
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setMax_Aperture(double max_Aperture) {
+        this.max_Aperture = max_Aperture;
+    }
+
+    public void setFocal_Length(int focal_Length) {
+        this.focal_Length = focal_Length;
     }
 }

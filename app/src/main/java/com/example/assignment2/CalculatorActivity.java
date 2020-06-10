@@ -34,6 +34,11 @@ public class CalculatorActivity extends AppCompatActivity {
         return intent;
     }
 
+    public static Intent launchSwitchIntent(Context c) {
+        Intent a = new Intent(c, CalculatorActivity.class);
+        return a;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,15 +74,18 @@ public class CalculatorActivity extends AppCompatActivity {
                 dof.setText(formatM(calc.depthofField()));
             }
         });
-        /*
+
         Button editButton = (Button) findViewById(R.id.editLensbutton);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent b = AddLens.launchEditIntent(CalculatorActivity.this,
+                        positionSelected,
+                        true);
+                startActivity(b);
             }
         });
-        */
+
         Button deleteButton = (Button) findViewById(R.id.deleteLensbutton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override

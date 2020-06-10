@@ -33,6 +33,12 @@ public class LensManager implements Iterable<Lens>{
          allLens.remove(position);
     }
 
+    public void edit(int position, String make, double aperture, int focallength){
+        allLens.get(position).setMake(make);
+        allLens.get(position).setFocal_Length(focallength);
+        allLens.get(position).setMax_Aperture(aperture);
+    }
+
     public List<Lens> getLensList(){
         return allLens;
     }

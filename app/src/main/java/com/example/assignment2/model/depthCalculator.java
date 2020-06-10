@@ -6,6 +6,8 @@ public class depthCalculator {
     private double selectedAperture;
     private double subjectDistance;
 
+
+
     public depthCalculator(double COC, Lens lens, double selectedAperture, double subjectDistance) {
         this.selectedAperture = selectedAperture;
         this.subjectDistance = subjectDistance*1000;

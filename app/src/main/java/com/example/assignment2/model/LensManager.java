@@ -16,6 +16,10 @@ public class LensManager implements Iterable<Lens>{
     public static LensManager getInstance(){
         if(Instance == null){
             Instance = new LensManager();
+            Instance.add(new Lens("Canon", 1.8, 50));
+            Instance.add(new Lens("Tamron", 2.8, 90));
+            Instance.add(new Lens("Sigma", 2.8, 200));
+            Instance.add(new Lens("Nikon", 4, 200));
         }
         return Instance;
     }

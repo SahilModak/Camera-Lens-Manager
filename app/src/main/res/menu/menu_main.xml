@@ -3,8 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.assignment2.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_CalculauteDof"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_CalculateDoF"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_AddLens"
+        android:orderInCategory="100"
+        android:title="Add Lens"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_EditLens"
+        android:orderInCategory="100"
+        android:title="Edit Lens"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_DeleteLens"
+        android:orderInCategory="100"
+        android:title="Delete Lens"
+        app:showAsAction="never" />
+
 </menu>

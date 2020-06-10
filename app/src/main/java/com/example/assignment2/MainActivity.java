@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,7 +96,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_CalculauteDof ||
+                id == R.id.action_DeleteLens ||
+                id == R.id.action_EditLens) {
+            Toast.makeText(getApplicationContext(), "Select a lens!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if(id == R.id.action_AddLens){
+            Intent b = AddLens.launchaddIntent(MainActivity.this);
+            startActivity(b);
             return true;
         }
 

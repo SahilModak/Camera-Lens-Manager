@@ -39,19 +39,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        populatelistView();
+        displaylistView();
 
     }
 
-    private void populatelistView() {
+    private void displaylistView() {
         LensManager manager = LensManager.getInstance();
-        if(manager.size() == 0) {
-            manager.add(new Lens("Canon", 1.8, 50));
-            manager.add(new Lens("Tamron", 2.8, 90));
-            manager.add(new Lens("Sigma", 2.8, 200));
-            manager.add(new Lens("Nikon", 4, 200));
-        }
-
         ArrayList<String> myitems = new ArrayList<>();
         for (int i = 0; i < manager.size(); i++) {
             myitems.add(manager.get(i).toString());

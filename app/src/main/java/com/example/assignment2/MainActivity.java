@@ -45,10 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void populatelistView() {
         LensManager manager = LensManager.getInstance();
-        manager.add(new Lens("Canon", 1.8, 50));
-        manager.add(new Lens("Tamron", 2.8, 90));
-        manager.add(new Lens("Sigma", 2.8, 200));
-        manager.add(new Lens("Nikon", 4, 200));
+        if(manager.size() == 0) {
+            manager.add(new Lens("Canon", 1.8, 50));
+            manager.add(new Lens("Tamron", 2.8, 90));
+            manager.add(new Lens("Sigma", 2.8, 200));
+            manager.add(new Lens("Nikon", 4, 200));
+        }
 
         ArrayList<String> myitems = new ArrayList<>();
         for (int i = 0; i < manager.size(); i++) {

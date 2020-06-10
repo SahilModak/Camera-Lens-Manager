@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         displaylistView();
     }
 
+
+
     private void displaylistView() {
         LensManager manager = LensManager.getInstance();
         ArrayList<String> myitems = new ArrayList<>();

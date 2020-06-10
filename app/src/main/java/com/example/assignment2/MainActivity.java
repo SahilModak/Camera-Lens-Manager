@@ -1,12 +1,12 @@
 package com.example.assignment2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.assignment2.model.Lens;
 import com.example.assignment2.model.LensManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -23,6 +23,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Intent launchcancelIntent(Context d){
+        Intent a = new Intent(d, MainActivity.class);
+        return a;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = AddLens.makelaunchIntent(MainActivity.this);
-                startActivity(i);
+                Intent b = AddLens.launchaddIntent(MainActivity.this);
+                startActivity(b);
             }
         });
 

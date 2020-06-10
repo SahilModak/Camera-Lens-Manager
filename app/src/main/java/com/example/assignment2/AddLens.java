@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 
 public class AddLens extends AppCompatActivity {
 
-    public static Intent makelaunchIntent(Context c){
+    public static Intent launchaddIntent(Context c){
         Intent intent = new Intent(c, AddLens.class);
         return intent;
     }
@@ -25,5 +26,14 @@ public class AddLens extends AppCompatActivity {
         setContentView(R.layout.activity_add_lens);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button addButton = (Button) findViewById(R.id.addLensCancel);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = MainActivity.launchcancelIntent(AddLens.this);
+                startActivity(i);
+            }
+        });
     }
 }

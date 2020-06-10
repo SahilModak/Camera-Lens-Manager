@@ -30,19 +30,6 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
-    <ListView
-        android:id="@+id/lensDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:translationY="100dp" />
 
-    <EditText
-        android:id="@+id/textSelectLens"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/select_a_lens"
-        android:translationY="60dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

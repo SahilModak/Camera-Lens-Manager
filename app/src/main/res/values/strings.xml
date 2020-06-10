@@ -17,4 +17,7 @@
     <string name="title_activity_calculator">Calculate DoF</string>
     <string name="addLens_addButton">Add Lens</string>
     <string name="addLens_cancelButton">Cancel</string>
+    <string name="select_another_lens">Select Another Lens</string>
+    <string name="delete_selected_lens">Delete Selected Lens</string>
+    <string name="edit_selected_lens">Edit Selected Lens</string>
 </resources>

@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         displaylistView();
-
     }
 
     private void displaylistView() {

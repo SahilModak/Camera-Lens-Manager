@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.constraintlayout.widget.ConstraintLayout>
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <EditText
+        android:id="@+id/addLensMakeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <TextView
+        android:id="@+id/addLensMake"
+        android:layout_width="63dp"
+        android:layout_height="26dp"
+        android:text="@string/addLens_Make"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addLensMakeInput"
+        app:layout_constraintStart_toStartOf="@+id/addLensMakeInput" />
+
+    <TextView
+        android:id="@+id/addLensFocalLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addLens_Focal_Length"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addLensFocalLengthinput"
+        app:layout_constraintStart_toStartOf="@+id/addLensFocalLengthinput" />
+
+    <EditText
+        android:id="@+id/addLensFocalLengthinput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
+
+    <TextView
+        android:id="@+id/addLensAperture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addLensAperture"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addLensApertureInput"
+        app:layout_constraintStart_toStartOf="@+id/addLensApertureInput" />
+
+    <EditText
+        android:id="@+id/addLensApertureInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+</androidx.constraintlayout.widget.ConstraintLayout>

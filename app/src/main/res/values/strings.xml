@@ -20,4 +20,15 @@
     <string name="select_another_lens">Select Another Lens</string>
     <string name="delete_selected_lens">Delete Selected Lens</string>
     <string name="edit_selected_lens">Edit Selected Lens</string>
+    <string name="far_focal_distance">Far Focal Distance</string>
+    <string name="depth_of_field">Depth of Field</string>
+    <string name="hyperfocal_distance">Hyperfocal Distance</string>
+    <string name="enter_all_values">Enter all values</string>
+    <string name="distance_to_subject">Distance to subject [m]</string>
+    <string name="exampleDistance">ex: 1.5 for 1.5m</string>
+    <string name="selected_aperture">Selected aperture</string>
+    <string name="photo_details_with">Photo details with</string>
+    <string name="circle_of_confusion_m">Circle of Confusion [m]</string>
+    <string name="near_focal_distance">Near Focal Distance</string>
+    <string name="exampleFocalLength">ex: 2.8 for F2.8</string>
 </resources>

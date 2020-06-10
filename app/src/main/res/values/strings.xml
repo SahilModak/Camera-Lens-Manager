@@ -14,4 +14,5 @@
     <string name="addLens_Make">Make</string>
     <string name="addLens_Focal_Length">Focal Length [mm]</string>
     <string name="addLensAperture">Aperture</string>
+    <string name="title_activity_calculator">Calculate DoF</string>
 </resources>

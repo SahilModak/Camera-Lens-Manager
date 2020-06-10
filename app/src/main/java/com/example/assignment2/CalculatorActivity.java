@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.assignment2.model.Lens;
+import com.example.assignment2.model.LensManager;
+import com.example.assignment2.model.depthCalculator;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -11,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class CalculatorActivity extends AppCompatActivity {
     private static final String getSelected_lens = "Selected Lens";
@@ -37,8 +44,42 @@ public class CalculatorActivity extends AppCompatActivity {
         extractDataFromIntent();
 
         TextView lensName = (TextView)findViewById(R.id.textView11);
-//        String selectedLens = lensName.getText().toString();
         lensName.setText(selectedLens);
+        LensManager manager = LensManager.getInstance();
+        Lens currentLens = manager.get(positionSelected);
+        Button calcButton = (Button) findViewById(R.id.calculator);
+        calcButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                depthCalculator calc = new depthCalculator(Double.parseDouble(((EditText)findViewById(R.id.editTextNumber5)).getText().toString()),
+                        currentLens,
+                        Double.parseDouble(((EditText)findViewById(R.id.editTextNumber7)).getText().toString()),
+                        Double.parseDouble(((EditText)findViewById(R.id.editTextNumber6)).getText().toString()));
+
+                TextView hyperfocaldist = (TextView)findViewById(R.id.textView9);
+                hyperfocaldist.setText(formatM(calc.hyperfocalDistance()));
+
+                TextView farfocaldist = (TextView)findViewById(R.id.textView7);
+                farfocaldist.setText(formatM(calc.farFocalPoint()));
+
+                TextView nearfocaldist = (TextView)findViewById(R.id.textView6);
+                nearfocaldist.setText(formatM(calc.nearFocalPoint()));
+
+                TextView dof = (TextView)findViewById(R.id.textView8);
+                dof.setText(formatM(calc.depthofField()));
+            }
+        });
+/*
+        depthCalculator calc = new depthCalculator(Double.parseDouble(((EditText)findViewById(R.id.editTextNumber5)).getText().toString()),
+                currentLens,
+                Double.parseDouble(((EditText)findViewById(R.id.editTextNumber7)).getText().toString()),
+                Double.parseDouble(((EditText)findViewById(R.id.editTextNumber6)).getText().toString()));
+
+
+        TextView hyperfocaldist = (TextView)findViewById(R.id.textView9);
+        hyperfocaldist.setText(formatM(calc.hyperfocalDistance()));
+*/
+
     }
 
     private void extractDataFromIntent() {
@@ -46,4 +87,10 @@ public class CalculatorActivity extends AppCompatActivity {
         selectedLens = intent.getStringExtra(getSelected_lens);
         positionSelected = intent.getIntExtra(selectedPosition, 0);
     }
+
+    private String formatM(double distanceInM) {
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(distanceInM) + "m";
+    }
+
 }

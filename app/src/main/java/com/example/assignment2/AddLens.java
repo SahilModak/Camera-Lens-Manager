@@ -39,8 +39,8 @@ public class AddLens extends AppCompatActivity {
             }
         });
 
-        Button adButton = (Button) findViewById(R.id.addLensAdd);
-        adButton.setOnClickListener(new View.OnClickListener() {
+        Button addButton = (Button) findViewById(R.id.addLensAdd);
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LensManager manager = LensManager.getInstance();

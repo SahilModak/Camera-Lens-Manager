@@ -29,6 +29,10 @@ public class LensManager implements Iterable<Lens>{
         allLens.add(a);
     }
 
+    public void delete(int position){
+         allLens.remove(position);
+    }
+
     public List<Lens> getLensList(){
         return allLens;
     }

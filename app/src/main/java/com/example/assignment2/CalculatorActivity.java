@@ -69,16 +69,25 @@ public class CalculatorActivity extends AppCompatActivity {
                 dof.setText(formatM(calc.depthofField()));
             }
         });
-/*
-        depthCalculator calc = new depthCalculator(Double.parseDouble(((EditText)findViewById(R.id.editTextNumber5)).getText().toString()),
-                currentLens,
-                Double.parseDouble(((EditText)findViewById(R.id.editTextNumber7)).getText().toString()),
-                Double.parseDouble(((EditText)findViewById(R.id.editTextNumber6)).getText().toString()));
+        /*
+        Button editButton = (Button) findViewById(R.id.editLensbutton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+        */
+        Button deleteButton = (Button) findViewById(R.id.deleteLensbutton);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manager.delete(positionSelected);
+                Intent x = MainActivity.launchSwitchIntent(CalculatorActivity.this);
+                startActivity(x);
+            }
+        });
 
-        TextView hyperfocaldist = (TextView)findViewById(R.id.textView9);
-        hyperfocaldist.setText(formatM(calc.hyperfocalDistance()));
-*/
 
     }
 

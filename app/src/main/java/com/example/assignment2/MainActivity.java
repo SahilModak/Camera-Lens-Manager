@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Intent launchcancelIntent(Context d){
+    public static Intent launchSwitchIntent(Context d){
         Intent a = new Intent(d, MainActivity.class);
         return a;
     }

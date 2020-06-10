@@ -35,11 +35,11 @@
         android:layout_height="wrap_content"
         android:text="@string/addLens_Focal_Length"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/addLensFocalLengthinput"
-        app:layout_constraintStart_toStartOf="@+id/addLensFocalLengthinput" />
+        app:layout_constraintBottom_toTopOf="@+id/addLensFocalLengthInput"
+        app:layout_constraintStart_toStartOf="@+id/addLensFocalLengthInput" />
 
     <EditText
-        android:id="@+id/addLensFocalLengthinput"
+        android:id="@+id/addLensFocalLengthInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

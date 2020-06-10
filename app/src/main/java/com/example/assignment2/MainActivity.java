@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent b = AddLens.launchAddIntent(MainActivity.this, true);
+                Intent b = AddLens.launchAddIntent(MainActivity.this);
                 startActivity(b);
             }
         });
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else if(id == R.id.action_AddLens){
-            Intent b = AddLens.launchAddIntent(MainActivity.this, true);
+            Intent b = AddLens.launchAddIntent(MainActivity.this);
             startActivity(b);
             return true;
         }

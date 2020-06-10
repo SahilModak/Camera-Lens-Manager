@@ -88,6 +88,14 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
+        Button selectDiffLensButton = (Button) findViewById(R.id.selectDiffLens);
+        selectDiffLensButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x = MainActivity.launchSwitchIntent(CalculatorActivity.this);
+                startActivity(x);
+            }
+        });
 
     }
 

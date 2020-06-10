@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = (TextView) view;
                 String message = textView.getText().toString();
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                Intent c = CalculatorActivity.launchCalcIntent(MainActivity.this, message);
+                Intent c = CalculatorActivity.launchCalcIntent(MainActivity.this, message, position);
                 startActivity(c);
             }
         });

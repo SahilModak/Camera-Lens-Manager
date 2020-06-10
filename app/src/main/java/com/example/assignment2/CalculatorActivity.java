@@ -15,12 +15,15 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
     private static final String getSelected_lens = "Selected Lens";
+    private static final String selectedPosition = "Selected Position";
 
     private String selectedLens;
+    private int positionSelected;
 
-    public static Intent launchCalcIntent(Context c, String message){
+    public static Intent launchCalcIntent(Context c, String message, int position){
         Intent intent = new Intent(c, CalculatorActivity.class);
         intent.putExtra(getSelected_lens, message);
+        intent.putExtra(selectedPosition, position);
         return intent;
     }
 
@@ -41,5 +44,6 @@ public class CalculatorActivity extends AppCompatActivity {
     private void extractDataFromIntent() {
         Intent intent = getIntent();
         selectedLens = intent.getStringExtra(getSelected_lens);
+        positionSelected = intent.getIntExtra(selectedPosition, 0);
     }
 }

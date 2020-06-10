@@ -69,16 +69,22 @@ public class MainActivity extends AppCompatActivity {
     private void displaylistView() {
         LensManager manager = LensManager.getInstance();
         ArrayList<String> myitems = new ArrayList<>();
-        for (int i = 0; i < manager.size(); i++) {
-            myitems.add(manager.get(i).toString());
+        TextView lensSelection = (TextView)findViewById(R.id.selectLens);
+        if (manager.size() == 0) {
+            lensSelection.setText("You do not have any lens added yet.\n" + "To add a new lens go to: tool bar -> Add Lens");
+        } else {
+            lensSelection.setText("Select a lens to use:\n");
+            for (int i = 0; i < manager.size(); i++) {
+                myitems.add(manager.get(i).toString());
+            }
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    R.layout.lenslistdisplay,
+                    myitems);
+
+            ListView lst = (ListView) findViewById(R.id.lensDisplay);
+            lst.setAdapter(adapter);
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.lenslistdisplay,
-                myitems);
-
-        ListView lst = (ListView) findViewById(R.id.lensDisplay);
-        lst.setAdapter(adapter);
     }
 
     @Override

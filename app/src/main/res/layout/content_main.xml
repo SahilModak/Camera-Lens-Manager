@@ -10,15 +10,20 @@
         android:id="@+id/selectLens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/select_a_lens"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/lensDisplay"
-        app:layout_constraintStart_toStartOf="@+id/lensDisplay" />
+        app:layout_constraintStart_toStartOf="@+id/lensDisplay"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lensDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

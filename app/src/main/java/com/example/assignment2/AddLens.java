@@ -74,22 +74,19 @@ public class AddLens extends AppCompatActivity {
                     if((((EditText) findViewById(R.id.addLensMakeInput)).getText().toString()).length() == 0){
                         check = false;
                         EditText lensMake = (EditText) findViewById(R.id.addLensMakeInput);
-                        lensMake.setError("Please enter a Make for your Lens, example: 'Canon'");
+                        lensMake.setError(getString(R.string.error3));
                     }
                     if((((EditText) findViewById(R.id.addLensApertureInput)).getText().toString().length() == 0) ||
                             ((Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()))) <= 1.4) {
                         check = false;
                         EditText lensAperture = (EditText) findViewById(R.id.addLensApertureInput);
-                        lensAperture.setError("Please enter a valid aperture for your Lens, " +
-                                "example: 1.5 for 1.5mm, valid apertures are " +
-                                "those greater than or equal to 1.4mm");
+                        lensAperture.setError(getString(R.string.error1));
                     }
                     if ((((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString().length() == 0) ||
                             ((Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())) < 0)){
                         check = false;
                         EditText lensfocal = (EditText) findViewById(R.id.addLensFocalLengthInput);
-                        lensfocal.setError("Please enter a valid focal length for your Lens, " +
-                                "example: 90 for 90mm, focal lengths are greater than 0");
+                        lensfocal.setError(getString(R.string.error2));
                     }
                     if(check) {
                         x.edit(poscopy,
@@ -120,22 +117,19 @@ public class AddLens extends AppCompatActivity {
                     if((((EditText) findViewById(R.id.addLensMakeInput)).getText().toString()).length() == 0){
                         check = false;
                         EditText lensMake = (EditText) findViewById(R.id.addLensMakeInput);
-                        lensMake.setError("Please enter a Make for your Lens, example: 'Canon'");
+                        lensMake.setError(getString(R.string.error3));
                     }
                     if((((EditText) findViewById(R.id.addLensApertureInput)).getText().toString().length() == 0) ||
                             ((Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()))) <= 1.4) {
                         check = false;
                         EditText lensAperture = (EditText) findViewById(R.id.addLensApertureInput);
-                        lensAperture.setError("Please enter a valid aperture for your Lens, " +
-                                "example: 1.5 for 1.5mm, valid apertures are " +
-                                "those greater than or equal to 1.4mm");
+                        lensAperture.setError(getString(R.string.error1));
                     }
                     if ((((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString().length() == 0) ||
                             ((Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())) < 0)){
                         check = false;
                         EditText lensfocal = (EditText) findViewById(R.id.addLensFocalLengthInput);
-                        lensfocal.setError("Please enter a valid focal length for your Lens, " +
-                                "example: 90 for 90mm, focal lengths are greater than 0");
+                        lensfocal.setError(getString(R.string.error2));
                     }
                     if(check) {
                         LensManager x = LensManager.getInstance();

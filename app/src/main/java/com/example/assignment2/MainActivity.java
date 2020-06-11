@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> myitems = new ArrayList<>();
         TextView lensSelection = (TextView)findViewById(R.id.selectLens);
         if (manager.size() == 0) {
-            lensSelection.setText("You do not have any lens added yet.\n" + "To add a new lens go to: tool bar -> Add Lens");
+            lensSelection.setText(R.string.zeroAddLensmsg);
         } else {
-            lensSelection.setText("Select a lens to use:\n");
+            lensSelection.setText(R.string.select_aLens);
             for (int i = 0; i < manager.size(); i++) {
                 myitems.add(manager.get(i).toString());
             }
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_CalculauteDof ||
                 id == R.id.action_DeleteLens ||
                 id == R.id.action_EditLens) {
-            Toast.makeText(getApplicationContext(), "Select a lens!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.selectLens, Toast.LENGTH_SHORT).show();
             return true;
         }
         else if(id == R.id.action_AddLens){

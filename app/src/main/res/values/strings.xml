@@ -31,4 +31,10 @@
     <string name="circle_of_confusion_m">Circle of Confusion [m]</string>
     <string name="near_focal_distance">Near Focal Distance</string>
     <string name="exampleFocalLength">ex: 2.8 for F2.8</string>
+    <string name="selectLens">Select a lens!</string>
+    <string name="select_aLens">Select a lens to use:\n</string>
+    <string name="zeroAddLensmsg"><![CDATA[You do not have any lens added yet.\n To add a new lens go to: tool bar -> Add Lens]]></string>
+    <string name="error1">Please enter a valid aperture for your Lens, example: 1.5 for 1.5mm, valid apertures are those greater than or equal to 1.4mm</string>
+    <string name="error2">Please enter a valid focal length for your Lens, example: 90 for 90mm, focal lengths are greater than 0</string>
+    <string name="error3">Please enter a Make for your Lens, example: \'Canon\'</string>
 </resources>

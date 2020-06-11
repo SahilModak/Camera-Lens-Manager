@@ -37,4 +37,5 @@
     <string name="error1">Please enter a valid aperture for your Lens, example: 1.5 for 1.5mm, valid apertures are those greater than or equal to 1.4mm</string>
     <string name="error2">Please enter a valid focal length for your Lens, example: 90 for 90mm, focal lengths are greater than 0</string>
     <string name="error3">Please enter a Make for your Lens, example: \'Canon\'</string>
+    <string name="optional_features">Optional Features\n1. App bar buttons with toolbar\n2. Edit and Delete  Lens\n3. Error Checking Input\n4. Auto-recalculate \n5. Empty State</string>
 </resources>

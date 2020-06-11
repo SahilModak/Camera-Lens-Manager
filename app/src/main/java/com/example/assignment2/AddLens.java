@@ -18,13 +18,13 @@ import android.widget.Toast;
 public class AddLens extends AppCompatActivity {
     private int pos = -5;
 
-    // Intent to switch to AddLens page
+    // Intent to switch to AddLens page from main page
     public static Intent launchAddIntent(Context c){
         Intent intent = new Intent(c, AddLens.class);
         return intent;
     }
 
-
+    // Intent to switch from calcualtor activity
     public static Intent launchEditIntent(Context c, int position, boolean val){
         Intent intent = new Intent(c, AddLens.class);
         intent.putExtra("position of lens in manager - ", position);
@@ -32,7 +32,7 @@ public class AddLens extends AppCompatActivity {
         return intent;
     }
 
-
+    //extract lens data from intent
     private void extractdatafromEditIntent(){
         Intent intent = getIntent();
         pos = intent.getIntExtra("position of lens in manager - ", -5);
@@ -48,6 +48,8 @@ public class AddLens extends AppCompatActivity {
 
         LensManager x = LensManager.getInstance();
         extractdatafromEditIntent();
+        //if to switch between add and edit methods, pos is -5 globally, it set to a positive value if lens has to be edited
+        //if to switch between add and edit methods, pos is -5 globally, it set to a positive value if lens has to be edited
         if(pos != -5) {
             int poscopy = pos;
             EditText lensMake = (EditText) findViewById(R.id.addLensMakeInput);

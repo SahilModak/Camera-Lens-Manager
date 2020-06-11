@@ -18,10 +18,12 @@ import android.widget.Toast;
 public class AddLens extends AppCompatActivity {
     private int pos = -1;
 
+    // Intent to switch to AddLens page
     public static Intent launchAddIntent(Context c){
         Intent intent = new Intent(c, AddLens.class);
         return intent;
     }
+
 
     public static Intent launchEditIntent(Context c, int position, boolean val){
         Intent intent = new Intent(c, AddLens.class);

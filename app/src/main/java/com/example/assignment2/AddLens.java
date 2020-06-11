@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddLens extends AppCompatActivity {
-    private int pos = -1;
+    private int pos = -5;
 
     // Intent to switch to AddLens page
     public static Intent launchAddIntent(Context c){

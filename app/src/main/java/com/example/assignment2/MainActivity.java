@@ -27,11 +27,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Intent to switch to MainActivity page
     public static Intent launchSwitchIntent(Context d){
         Intent a = new Intent(d, MainActivity.class);
         return a;
     }
 
+    // On creation of main page calls displaylistView() to display initial stored lenses and also
+    // calls registerClickCallback() to perform action on clicking an item of lens list
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         registerClickCallback();
     }
 
+    // Pops a toast message of the lens chosen and changes to the Calculator page
     private void registerClickCallback() {
         ListView lst = (ListView) findViewById(R.id.lensDisplay);
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,12 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = (TextView) view;
                 String message = textView.getText().toString();
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                Intent c = CalculatorActivity.launchCalcIntent(MainActivity.this, message, position);
-                startActivity(c);
+                Intent c = CalculatorActivity.launchCalcIntent(MainActivity.this, message, position);   // Sending extra information (message and position to CalculatorActivity)
+                startActivity(c);   // Changing to CalculatorActivity page
             }
         });
     }
 
+
+    // Displays the lenses that are stored in the program
     private void displaylistView() {
         LensManager manager = LensManager.getInstance();
         ArrayList<String> myitems = new ArrayList<>();
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -86,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+    // Code to add action bar icon items and actions based on options clicked
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

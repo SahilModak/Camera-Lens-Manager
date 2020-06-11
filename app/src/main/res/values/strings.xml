@@ -38,4 +38,7 @@
     <string name="error2">Please enter a valid focal length for your Lens, example: 90 for 90mm, focal lengths are greater than 0</string>
     <string name="error3">Please enter a Make for your Lens, example: \'Canon\'</string>
     <string name="optional_features">Optional Features\n1. App bar buttons with toolbar\n2. Edit and Delete  Lens\n3. Error Checking Input\n4. Auto-recalculate \n5. Empty State</string>
+    <string name="error4">Please enter a valid aperture, a valid apertures are greater than 1.4, the aperture should also be greater than the selected lens\' aperture, example 1.8 for F1.8</string>
+    <string name="error5">Please enter a valid distance, a valid distance is greater than 0, example 1.1 for 1.1m</string>
+    <string name="error6">Enter a valid Circle of Confusion, valid CoCs\' are greater than 0</string>
 </resources>

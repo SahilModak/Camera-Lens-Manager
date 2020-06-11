@@ -77,18 +77,32 @@ public class CalculatorActivity extends AppCompatActivity {
                 TextView nearfocaldist = (TextView)findViewById(R.id.textView6);
                 TextView dof = (TextView)findViewById(R.id.textView8);
 
-                if (distToSubj.length() == 0){
+                if (distToSubj.getText().toString().length() == 0||
+                        Double.parseDouble(distToSubj.getText().toString()) <= 0){
                     hyperfocaldist.setText("");
                     farfocaldist.setText("");
                     nearfocaldist.setText("");
                     dof.setText("");
+                    distToSubj.setError(getString(R.string.error5));
                     return;
                 };
-                if (selectedAperture.length() == 0){
+                if (selectedAperture.getText().toString().length() == 0 ||
+                        Double.parseDouble(selectedAperture.getText().toString()) <= 0 ||
+                        Double.parseDouble(selectedAperture.getText().toString()) <= manager.get(positionSelected).getMax_Aperture()) {
                     hyperfocaldist.setText("");
                     farfocaldist.setText("");
                     nearfocaldist.setText("");
                     dof.setText("");
+                    selectedAperture.setError(getString(R.string.error4));
+                    return;
+                };
+                if((COC.getText().toString().length() == 0 ||
+                        Double.parseDouble(COC.getText().toString()) <= 0)){
+                    hyperfocaldist.setText("");
+                    farfocaldist.setText("");
+                    nearfocaldist.setText("");
+                    dof.setText("");
+                    COC.setError(getString(R.string.error6));
                     return;
                 };
 
@@ -111,8 +125,6 @@ public class CalculatorActivity extends AppCompatActivity {
         distToSubj.addTextChangedListener(watch);
         selectedAperture.addTextChangedListener(watch);
 
-//        }
-//    });
 
         Button editButton = (Button) findViewById(R.id.editLensbutton);
         editButton.setOnClickListener(new View.OnClickListener() {

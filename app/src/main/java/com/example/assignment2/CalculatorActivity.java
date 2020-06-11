@@ -29,6 +29,7 @@ public class CalculatorActivity extends AppCompatActivity {
     private String selectedLens;
     private int positionSelected;
 
+    // Intent to switch to CalculatorActivity page
     public static Intent launchCalcIntent(Context c, String message, int position){
         Intent intent = new Intent(c, CalculatorActivity.class);
         intent.putExtra(getSelected_lens, message);
@@ -41,6 +42,7 @@ public class CalculatorActivity extends AppCompatActivity {
         return a;
     }
 
+    // Code to run on entering the page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,8 @@ public class CalculatorActivity extends AppCompatActivity {
         EditText COC = (EditText) findViewById(R.id.editTextNumber5);
         EditText distToSubj = (EditText) findViewById(R.id.editTextNumber6);
         EditText selectedAperture = (EditText) findViewById(R.id.editTextNumber7);
+
+        //  TextWatcher to register and recalculate on change for the fields
         TextWatcher watch = new TextWatcher() {
 
             @Override
@@ -77,6 +81,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 TextView nearfocaldist = (TextView)findViewById(R.id.textView6);
                 TextView dof = (TextView)findViewById(R.id.textView8);
 
+                // Error Checking
                 if (distToSubj.getText().toString().length() == 0||
                         Double.parseDouble(distToSubj.getText().toString()) <= 0){
                     hyperfocaldist.setText("");
@@ -106,11 +111,13 @@ public class CalculatorActivity extends AppCompatActivity {
                     return;
                 };
 
+                // Creates depthCalculator object with the registered values
                 depthCalculator calc = new depthCalculator(Double.parseDouble(((EditText)findViewById(R.id.editTextNumber5)).getText().toString()),
                         currentLens,
                         Double.parseDouble(((EditText)findViewById(R.id.editTextNumber7)).getText().toString()),
                         Double.parseDouble(((EditText)findViewById(R.id.editTextNumber6)).getText().toString()));
 
+                // Calculating all the following values
                 hyperfocaldist.setText(formatM(calc.hyperfocalDistance()));
 
                 farfocaldist.setText(formatM(calc.farFocalPoint()));
@@ -121,11 +128,12 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         };
 
+        // Text change listener for auto-recalculate
         COC.addTextChangedListener(watch);
         distToSubj.addTextChangedListener(watch);
         selectedAperture.addTextChangedListener(watch);
 
-
+        // Edit button and its functionality
         Button editButton = (Button) findViewById(R.id.editLensbutton);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +145,7 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
+        // Delete button and its functionality
         Button deleteButton = (Button) findViewById(R.id.deleteLensbutton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +156,7 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
+        // Change selected lens button and its functionality
         Button selectDiffLensButton = (Button) findViewById(R.id.selectDiffLens);
         selectDiffLensButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,12 +168,14 @@ public class CalculatorActivity extends AppCompatActivity {
 
     }
 
+    // Grabbing the extra data sent through the Intent across pages
     private void extractDataFromIntent() {
         Intent intent = getIntent();
         selectedLens = intent.getStringExtra(getSelected_lens);
         positionSelected = intent.getIntExtra(selectedPosition, 0);
     }
 
+    // Function to convert to 2dp
     private String formatM(double distanceInM) {
         DecimalFormat df = new DecimalFormat("0.00");
         return df.format(distanceInM) + "m";

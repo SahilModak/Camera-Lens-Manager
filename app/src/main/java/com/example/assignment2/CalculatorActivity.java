@@ -13,6 +13,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,27 +55,69 @@ public class CalculatorActivity extends AppCompatActivity {
         LensManager manager = LensManager.getInstance();
         Lens currentLens = manager.get(positionSelected);
         Button calcButton = (Button) findViewById(R.id.calculator);
-        calcButton.setOnClickListener(new View.OnClickListener() {
+
+//        calcButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//        public void onClick(View v) {
+
+        EditText COC = (EditText) findViewById(R.id.editTextNumber5);
+        EditText distToSubj = (EditText) findViewById(R.id.editTextNumber6);
+        EditText selectedAperture = (EditText) findViewById(R.id.editTextNumber7);
+        TextWatcher watch = new TextWatcher() {
+
             @Override
-            public void onClick(View v) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                TextView hyperfocaldist = (TextView)findViewById(R.id.textView9);
+                TextView farfocaldist = (TextView)findViewById(R.id.textView7);
+                TextView nearfocaldist = (TextView)findViewById(R.id.textView6);
+                TextView dof = (TextView)findViewById(R.id.textView8);
+
+                if (distToSubj.length() == 0){
+                    hyperfocaldist.setText("");
+                    farfocaldist.setText("");
+                    nearfocaldist.setText("");
+                    dof.setText("");
+                    return;
+                };
+                if (selectedAperture.length() == 0){
+                    hyperfocaldist.setText("");
+                    farfocaldist.setText("");
+                    nearfocaldist.setText("");
+                    dof.setText("");
+                    return;
+                };
+
                 depthCalculator calc = new depthCalculator(Double.parseDouble(((EditText)findViewById(R.id.editTextNumber5)).getText().toString()),
                         currentLens,
                         Double.parseDouble(((EditText)findViewById(R.id.editTextNumber7)).getText().toString()),
                         Double.parseDouble(((EditText)findViewById(R.id.editTextNumber6)).getText().toString()));
 
-                TextView hyperfocaldist = (TextView)findViewById(R.id.textView9);
                 hyperfocaldist.setText(formatM(calc.hyperfocalDistance()));
 
-                TextView farfocaldist = (TextView)findViewById(R.id.textView7);
                 farfocaldist.setText(formatM(calc.farFocalPoint()));
 
-                TextView nearfocaldist = (TextView)findViewById(R.id.textView6);
                 nearfocaldist.setText(formatM(calc.nearFocalPoint()));
 
-                TextView dof = (TextView)findViewById(R.id.textView8);
                 dof.setText(formatM(calc.depthofField()));
             }
-        });
+        };
+
+        COC.addTextChangedListener(watch);
+        distToSubj.addTextChangedListener(watch);
+        selectedAperture.addTextChangedListener(watch);
+
+//        }
+//    });
 
         Button editButton = (Button) findViewById(R.id.editLensbutton);
         editButton.setOnClickListener(new View.OnClickListener() {

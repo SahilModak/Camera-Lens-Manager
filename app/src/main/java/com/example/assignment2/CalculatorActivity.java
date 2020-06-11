@@ -54,11 +54,6 @@ public class CalculatorActivity extends AppCompatActivity {
         lensName.setText(selectedLens);
         LensManager manager = LensManager.getInstance();
         Lens currentLens = manager.get(positionSelected);
-        Button calcButton = (Button) findViewById(R.id.calculator);
-
-//        calcButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//        public void onClick(View v) {
 
         EditText COC = (EditText) findViewById(R.id.editTextNumber5);
         EditText distToSubj = (EditText) findViewById(R.id.editTextNumber6);

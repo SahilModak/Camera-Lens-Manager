@@ -71,19 +71,21 @@ public class AddLens extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Boolean check = true;
-                    if(((EditText) findViewById(R.id.addLensMakeInput)).getText().toString().length() == 0){
+                    if((((EditText) findViewById(R.id.addLensMakeInput)).getText().toString()).length() == 0){
                         check = false;
                         EditText lensMake = (EditText) findViewById(R.id.addLensMakeInput);
                         lensMake.setError("Please enter a Make for your Lens, example: 'Canon'");
                     }
-                    else if((Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString())) >= 1.4) {
+                    if((((EditText) findViewById(R.id.addLensApertureInput)).getText().toString().length() == 0) ||
+                            ((Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()))) <= 1.4) {
                         check = false;
                         EditText lensAperture = (EditText) findViewById(R.id.addLensApertureInput);
                         lensAperture.setError("Please enter a valid aperture for your Lens, " +
                                 "example: 1.5 for 1.5mm, valid apertures are " +
                                 "those greater than or equal to 1.4mm");
                     }
-                    else if ((Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())) > 0){
+                    if ((((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString().length() == 0) ||
+                            ((Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())) < 0)){
                         check = false;
                         EditText lensfocal = (EditText) findViewById(R.id.addLensFocalLengthInput);
                         lensfocal.setError("Please enter a valid focal length for your Lens, " +
@@ -97,7 +99,6 @@ public class AddLens extends AppCompatActivity {
                         Intent i = MainActivity.launchSwitchIntent(AddLens.this);
                         startActivity(i);
                     }
-                    check = true;
                 }
             });
         }
@@ -115,12 +116,35 @@ public class AddLens extends AppCompatActivity {
             addButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LensManager manager = LensManager.getInstance();
-                    manager.add(new Lens(((EditText) findViewById(R.id.addLensMakeInput)).getText().toString(),
-                            Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()),
-                            Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())));
-                    Intent i = MainActivity.launchSwitchIntent(AddLens.this);
-                    startActivity(i);
+                    Boolean check = true;
+                    if((((EditText) findViewById(R.id.addLensMakeInput)).getText().toString()).length() == 0){
+                        check = false;
+                        EditText lensMake = (EditText) findViewById(R.id.addLensMakeInput);
+                        lensMake.setError("Please enter a Make for your Lens, example: 'Canon'");
+                    }
+                    if((((EditText) findViewById(R.id.addLensApertureInput)).getText().toString().length() == 0) ||
+                            ((Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()))) <= 1.4) {
+                        check = false;
+                        EditText lensAperture = (EditText) findViewById(R.id.addLensApertureInput);
+                        lensAperture.setError("Please enter a valid aperture for your Lens, " +
+                                "example: 1.5 for 1.5mm, valid apertures are " +
+                                "those greater than or equal to 1.4mm");
+                    }
+                    if ((((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString().length() == 0) ||
+                            ((Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())) < 0)){
+                        check = false;
+                        EditText lensfocal = (EditText) findViewById(R.id.addLensFocalLengthInput);
+                        lensfocal.setError("Please enter a valid focal length for your Lens, " +
+                                "example: 90 for 90mm, focal lengths are greater than 0");
+                    }
+                    if(check) {
+                        LensManager x = LensManager.getInstance();
+                        x.add(new Lens(((EditText) findViewById(R.id.addLensMakeInput)).getText().toString(),
+                                Double.parseDouble(((EditText) findViewById(R.id.addLensApertureInput)).getText().toString()),
+                                Integer.parseInt(((EditText) findViewById(R.id.addLensFocalLengthInput)).getText().toString())));
+                        Intent i = MainActivity.launchSwitchIntent(AddLens.this);
+                        startActivity(i);
+                    }
                 }
             });
         }

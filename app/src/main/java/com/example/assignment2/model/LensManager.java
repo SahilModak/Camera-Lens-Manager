@@ -73,4 +73,5 @@ public class LensManager implements Iterable<Lens>{
         //checks if the aperture is too low for a lens
         return aperture >= allLens.get(num).getMax_Aperture();
     }
+
 }
